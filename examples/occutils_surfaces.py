@@ -1,32 +1,31 @@
 #!/usr/bin/env python
 
-##Copyright 2009-2015 Jelle Ferina (jelleferinga@gmail.com)
+# Copyright 2009-2015 Jelle Ferina (jelleferinga@gmail.com)
 ##
-##This file is part of pythonOCC.
+# This file is part of pythonOCC.
 ##
-##pythonOCC is free software: you can redistribute it and/or modify
-##it under the terms of the GNU Lesser General Public License as published by
-##the Free Software Foundation, either version 3 of the License, or
-##(at your option) any later version.
+# pythonOCC is free software: you can redistribute it and/or modify
+# it under the terms of the GNU Lesser General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
 ##
-##pythonOCC is distributed in the hope that it will be useful,
-##but WITHOUT ANY WARRANTY; without even the implied warranty of
-##MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-##GNU Lesser General Public License for more details.
+# pythonOCC is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU Lesser General Public License for more details.
 ##
-##You should have received a copy of the GNU Lesser General Public License
-##along with pythonOCC.  If not, see <http://www.gnu.org/licenses/>.
+# You should have received a copy of the GNU Lesser General Public License
+# along with pythonOCC.  If not, see <http://www.gnu.org/licenses/>.
 
 import sys
 from itertools import chain
 
-from OCCT.Display.SimpleGui import init_display
-
-sys.path.append('..')
-from OCCTUtils.Common import points_to_bspline
+from OCCT.Visualization import BasicViewer
+from OCCT.BRepGProp import BRepGProp_VinertGK, brepgprop_LinearProperties
+#from OCCTUtils.Common import points_to_bspline
 from OCCTUtils.Construct import gp_Pnt, make_edge, make_n_sided, make_vertex
 
-display, start_display, add_menu, add_function_to_menu = init_display()
+v = BasicViewer()
 
 
 def n_sided_patch():
@@ -69,10 +68,11 @@ def n_sided_patch():
     verts = map(make_vertex, chain(pts1, pts2, pts3, pts4))
     f1 = make_n_sided(edges, [])
 
-    display.DisplayShape(edges)
-    display.DisplayShape(verts)
-    display.DisplayShape(f1, update=True)
+    v.diplay_shape(edges)
+    v.diplay_shape(verts)
+    v.diplay_shape(f1)
+
 
 if __name__ == '__main__':
     n_sided_patch()
-    start_display()
+    v.start()

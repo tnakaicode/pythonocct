@@ -20,7 +20,7 @@
 import random
 
 from OCCT.Bnd import Bnd_Box
-from OCCT.BRepBndLib import brepbndlib_Add
+#from OCCT.BRepBndLib import brepbndlib_Add
 from OCCT.TColgp import (TColgp_HArray1OfPnt,
                         TColgp_Array1OfPnt,
                         TColgp_Array1OfPnt2d,
@@ -42,7 +42,7 @@ from OCCT.BRepGProp import (brepgprop_LinearProperties,
 from OCCT.GeomAdaptor import GeomAdaptor_Curve
 from OCCT.Geom import Geom_Curve
 
-from OCC import Graphic3d
+from OCCT import Graphic3d
 
 #===========================================================================
 # No PythonOCC dependencies...
@@ -86,7 +86,7 @@ def get_boundingbox(shape, tol=TOLERANCE):
     '''
     bbox = Bnd_Box()
     bbox.SetGap(tol)
-    brepbndlib_Add(shape, bbox)
+    #brepbndlib_Add(shape, bbox)
     xmin, ymin, zmin, xmax, ymax, zmax = bbox.Get()
     return xmin, ymin, zmin, xmax, ymax, zmax
 
@@ -327,7 +327,7 @@ def point_in_boundingbox(solid, pnt, tolerance=1e-5):
     """
     bbox = Bnd_Box()
     bbox.SetGap(tolerance)
-    brepbndlib_Add(solid, bbox)
+    #brepbndlib_Add(solid, bbox)
     return not bbox.IsOut(pnt)
 
 
@@ -418,13 +418,13 @@ def fix_tolerance(shape, tolerance=TOLERANCE):
     ShapeFix_ShapeTolerance().SetTolerance(shape, tolerance)
 
 
-def fix_continuity(edge, continuity=1):
-    from OCCT.ShapeUpgrade import ShapeUpgrade_ShapeDivideContinuity
-    su = ShapeUpgrade_ShapeDivideContinuity(edge)
-    su.SetBoundaryCriterion(eval('GeomAbs_C'+str(continuity)))
-    su.Perform()
-    te = st(su.Result())
-    return te
+#def fix_continuity(edge, continuity=1):
+#    from OCCT.ShapeUpgrade import ShapeUpgrade_ShapeDivideContinuity
+#    su = ShapeUpgrade_ShapeDivideContinuity(edge)
+#    su.SetBoundaryCriterion(eval('GeomAbs_C'+str(continuity)))
+#    su.Perform()
+#    te = st(su.Result())
+#    return te
 
 
 def resample_curve_with_uniform_deflection(curve, deflection=0.5, degreeMin=3, degreeMax=8, continuity=GeomAbs_C2, tolerance=1e-4):
@@ -438,7 +438,7 @@ def resample_curve_with_uniform_deflection(curve, deflection=0.5, degreeMin=3, d
     defl = GCPnts_UniformDeflection(crv, deflection)
     with assert_isdone(defl, 'failed to compute UniformDeflection'):
         print("Number of points:", defl.NbPoints())
-    sampled_pnts = [defl.Value(i) for i in xrange(1, defl.NbPoints())]
+    sampled_pnts = [defl.Value(i) for i in range(1, defl.NbPoints())]
     resampled_curve = GeomAPI_PointsToBSpline(point_list_to_TColgp_Array1OfPnt(sampled_pnts), degreeMin, degreeMax, continuity, tolerance)
     return resampled_curve.Curve().GetObject()
 

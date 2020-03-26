@@ -94,4 +94,4 @@ ENV/
 .spyderproject
 
 # VSCode
-.vscode/settings.json
+.vscode/*
