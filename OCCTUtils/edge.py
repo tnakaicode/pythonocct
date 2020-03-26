@@ -31,10 +31,10 @@ from OCCT.BRep import BRep_Tool, BRep_Tool_Continuity
 from OCCT.BRepIntCurveSurface import BRepIntCurveSurface_Inter
 
 # high-level
-from OCCUtils.Common import vertex2pnt, minimum_distance, assert_isdone, fix_continuity
-from OCCUtils.Construct import make_edge
-from OCCUtils.types_lut import geom_lut
-from OCCUtils.base import BaseObject
+from OCCTUtils.Common import vertex2pnt, minimum_distance, assert_isdone, fix_continuity
+from OCCTUtils.Construct import make_edge
+from OCCTUtils.types_lut import geom_lut
+from OCCTUtils.base import BaseObject
 
 
 class IntersectCurve(object):
@@ -458,7 +458,7 @@ class Edge(TopoDS_Edge, BaseObject):
 
 if __name__ == '__main__':
     from OCCT.BRepPrimAPI import BRepPrimAPI_MakeBox
-    from OCCUtils.Topology import Topo
+    from OCCTUtils.Topology import Topo
     b = BRepPrimAPI_MakeBox(10, 20, 30).Shape()
     t = Topo(b)
     ed = next(t.edges())

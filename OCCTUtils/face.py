@@ -31,10 +31,10 @@ from OCCT.GeomProjLib import geomprojlib
 from OCCT.Adaptor3d import Adaptor3d_IsoCurve
 from OCCT.gp import gp_Pnt2d, gp_Dir
 
-from OCCUtils.base import BaseObject
-from OCCUtils.edge import Edge
-from OCCUtils.Construct import TOLERANCE, to_adaptor_3d
-from OCCUtils.Topology import Topo, WireExplorer
+from OCCTUtils.base import BaseObject
+from OCCTUtils.edge import Edge
+from OCCTUtils.Construct import TOLERANCE, to_adaptor_3d
+from OCCTUtils.Topology import Topo, WireExplorer
 
 
 class DiffGeomSurface(object):

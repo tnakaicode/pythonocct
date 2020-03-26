@@ -17,9 +17,9 @@
 
 from OCCT.TopoDS import TopoDS_Solid
 
-from OCCUtils.Topology import Topo
-from OCCUtils.base import GlobalProperties, BaseObject
-from OCCUtils.shell import Shell
+from OCCTUtils.Topology import Topo
+from OCCTUtils.base import GlobalProperties, BaseObject
+from OCCTUtils.shell import Shell
 
 
 class Solid(TopoDS_Solid, BaseObject):

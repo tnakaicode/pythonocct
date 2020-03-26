@@ -46,9 +46,9 @@ from OCCT.BRepCheck import (BRepCheck_Vertex, BRepCheck_Edge, BRepCheck_Wire,
 from OCCT.GProp import GProp_GProps
 from OCCT.Display.SimpleGui import init_display
 
-from OCCUtils.Common import get_boundingbox
-from OCCUtils.Construct import (make_vertex, TOLERANCE)
-from OCCUtils.types_lut import shape_lut, topo_lut, curve_lut, surface_lut
+from OCCTUtils.Common import get_boundingbox
+from OCCTUtils.Construct import (make_vertex, TOLERANCE)
+from OCCTUtils.types_lut import shape_lut, topo_lut, curve_lut, surface_lut
 
 #===========================================================================
 # DISPLAY

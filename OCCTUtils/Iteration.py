@@ -20,8 +20,8 @@ This module helps looping through topology
 '''
 from OCCT.BRep import BRep_Tool
 
-from OCCUtils.Topology import WireExplorer, Topo
-from OCCUtils.edge import Edge
+from OCCTUtils.Topology import WireExplorer, Topo
+from OCCTUtils.edge import Edge
 
 
 class EdgePairsFromWire(object):
