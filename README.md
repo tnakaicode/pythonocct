@@ -18,6 +18,7 @@ Are you a pybind11 expert? If so, check out the
 documentation and share your thoughts and ideas!
 
 ## Technology Stack
+
 The pyOCCT core technology stack includes:
 
 * [pybind11](https://github.com/pybind/pybind11): This is a lightweight
@@ -38,6 +39,7 @@ The pyOCCT core technology stack includes:
   pyOCCT's mesh generation capabilities.
 
 ## Resources
+
 More resources for using, developing, and navigating the pyOCCT project will be
 made available, but for now the OpenCASCADE C++ documentation provides the most
 complete set of information. The pyOCCT interface should be very similar to its
@@ -50,7 +52,8 @@ C++ counterpart. More resources will be available soon.
 * [Chat on Gitter](https://gitter.im/pyOCCT/Lobby)
 * [Submit issues](https://github.com/LaughlinResearch/pyOCCT/issues)
 
-# Getting Started
+## Getting Started
+
 [Anaconda Python](https://www.anaconda.com/) (or [Miniconda](https://conda.io/miniconda.html))
 is recommended for package management and installation. It is recommended that
 a designated environment be created and used for pyOCCT. An example of
@@ -69,12 +72,12 @@ The easiest and fastest way to get started is using the conda build from the
 Anaconda cloud:
 
     conda install -c trelau pyocct
-    
+  
 To support minimal visualization the wxPython package is required and can be
 installed via conda by:
 
     conda install -c conda-forge wxpython
-    
+  
 At this point the ``OCCT`` package should be available:
 
     from OCCT.TopoDS import TopoDS_Shape
@@ -82,7 +85,7 @@ At this point the ``OCCT`` package should be available:
 Navigate to the *examples/* folder and run:
 
     python import_step.py
-    
+  
 and you should see the following image in the viewing tool if all the
 requirements are correctly installed.
 
@@ -92,7 +95,8 @@ Installation files can be cleaned up by:
 
     conda clean -a
 
-# Help Wanted
+## Help Wanted
+
 For now, contributions to the source code will be incorporated manually. There
 is a (mostly) automated tool for generating the source but it is not yet
 available. As new versions of OpenCASCADE are released, it may be better to
