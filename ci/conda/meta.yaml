@@ -1,45 +1,32 @@
 package:
   name: pyocct
-  version: "7.2.0.1"
+  version: 7.4.0.0
 
 source:
   path: ../..
 
 build:
   number: 0
-  features:
-    - vc14 # [win and py35]
-    - vc14 # [win and py36]
 
 requirements:
   build:
-    - python
-    - vc 14 # [win]
+    - {{ compiler('cxx') }}  # [win]
     - cmake
     - ninja
+
+  host:
+    - python
     - pybind11
-    - occt ==7.2.0
-    - vtk ==8.1.0
-    - smesh ==8.3.0b0
-    - netgen ==6.2.1804
+    - occt ==7.4.0
+    - smesh ==8.3.0.3
+    - tbb-devel
 
   run:
     - python
-    - wxpython
-    - vc 14 # [win]
-    - occt ==7.2.0
-    - vtk ==8.1.0
-    - smesh ==8.3.0b0
-    - netgen ==6.2.1804
+    - occt ==7.4.0
+    - smesh ==8.3.0.3
 
 test:
-  imports:
-    - OCCT
-    - OCCT.gp
-    - OCCT.TopoDS
-    - OCCT.SMESH
-    - OCCT.StdMeshers
-    - OCCT.NETGENPlugin
   source_files:
     - test
 
@@ -47,6 +34,5 @@ about:
   home: https://github.com/LaughlinResearch/pyOCCT
   license: LGPL2.1
   license_family: LGPL
-  summary: Python bindings for OpenCASCADE
-  description: Python bindings for OpenCASCADE geometry kernel
-               and SMESH meshing library.
+  summary: Python bindings for OpenCASCADE and SMESH
+  description: Python bindings for OpenCASCADE geometry kernel and SMESH meshing library.

@@ -23,14 +23,29 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
 
 Dummy definitions of _xcolor and __GLXFBConfigRec
 
-The OCCT include files for Linux use these two X Windows related structs. Since pyOCCT doesn't need their internal details, it seems unnecessary to drag in X library files, which may not be present in all systems anyway.
+The OCCT include files for Linux use these two X Windows related structs.
+Since pyOCCT doesn't need their internal details, it seems unnecessary to drag
+in X library files, which may not be present in all systems anyway.
 
 */
 
 #ifndef __xTypes_h__
 #define __xTypes_h__
 
-struct _xcolor {
+/*
+typedef struct _xcolor {
+
+	unsigned long  pixel;
+	unsigned short red;
+	unsigned short green;
+	unsigned short blue;
+	char           flags;
+	char           pad;
+
+} XColor;
+*/
+
+struct _XDisplay {
 
 };
 
